@@ -1,0 +1,61 @@
+<div class="row">
+  <div *ngIf="!name; else forminfo" class=" col-md-5 col-md-offset-2">
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+      <div class="form-container">
+        <div class="row columns">
+
+          <label>Name
+            <input type="text" formControlName="name">
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ nameAlert }}</div>
+          <label>E-Mail
+            <input type="email" formControlName="mail">
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['mail'].valid && rForm.controls['mail'].touched">{{ mailAlert }}</div>
+          <label>Message
+            <textarea type="text" formControlName="message"></textarea>
+          </label>
+          <div class="alert" *ngIf="!rForm.controls['message'].valid && rForm.controls['message'].touched">{{ messageAlert }}</div>
+
+          <input type="checkbox" name="validate" formControlName="validate" value="1" required> Valider les champs
+  
+          <input type="submit" class="button expanded button--nuka" value="Envoyer" [disabled]="!rForm.valid">
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-5">
+    <img style="width: 300px;" src="../../assets/image/JMF-Valentine/IMG_7946.jpg"/>
+  </div>
+</div>
+<div class="row" >
+    <div class=" col-md-5 col-md-offset-2" style="margin-top: -20px;">
+      <a href="https://www.linkedin.com/in/lo%C3%AFc-maupin-aa861aa6/">
+        <img width="60px" src="../../assets/image/logo/iLinkedin.png" alt="Linkedin">
+      </a>
+      <a href="https://www.instagram.com/loic.maupin.stylist/">
+        <img width="60px" src="../../assets/image/logo/iInstagram.png" alt="Instagram">
+      </a>
+      <a href="#">
+        <img width="60px" src="../../assets/image/logo/iFacebook.png" alt="Facebook">
+      </a>
+      <a href="https://twitter.com/Loicmaupin">
+        <img width="60px" src="../../assets/image/logo/iTwitter.png" alt="Twitter">
+      </a>
+    </div>
+</div>
+
+<ng-template #forminfo>
+   
+          <h3 class="col-md-offset-2 col-md-2">
+            Message envoyé : <br>{{ name }} 
+            
+          </h3>
+  
+          <p class="col-md-3" style="margin-top: 17px;">
+            <em>{{ mail }}</em><br><br>
+            {{ message }}
+          </p>
+    
+  </ng-template>

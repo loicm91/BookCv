@@ -1,0 +1,48 @@
+<div class="row">
+  <div class=" col-md-5 col-md-offset-2">
+    <form (ngSubmit)="onSubmit()">
+    <span class="input input--chisato">
+        <input id="name" class="input__field input__field--chisato" type="text" required  #name="ngForm"/>
+        <label class="input__label input__label--chisato" for="name">
+          <span class="input__label-content input__label-content--chisato" data-content="Nom / Prénom">Nom / Prénom</span>
+          <span [hidden]="name.valid" class="text-danger">Vous devez entrer un nom ou un prénom !</span>
+        </label>
+    </span><br>
+    <span class="input input--chisato">
+        <input id="mail" class="input__field input__field--chisato" type="text" required  #mail="ngForm"/>
+        <label class="input__label input__label--chisato" for="mail">
+          <span class="input__label-content input__label-content--chisato" data-content="E-mail">E-mail</span>
+          <span [hidden]="mail.valid" class="text-danger">Vous devez entrer un mail !</span>
+        </label>
+    </span><br>
+    <span class="input input--chisato">
+        <textarea id="message" class="input__field input__field--chisato" type="text" required #message="ngForm"></textarea>
+        <label class="input__label input__label--chisato" for="message">
+          <span class="input__label-content input__label-content--chisato" data-content="Message">Message</span>
+          <span [hidden]="message.valid" class="text-danger">Vous devez écrire un message !</span>
+        </label>
+    </span><br>
+
+    <button type="submit" class="button button--nuka button--round-s button--text-thick">Envoyer</button>
+    </form>
+  </div>
+  <div class="col-md-5">
+    <img style="width: 300px;" src="../../assets/image/JMF-Valentine/IMG_7946.jpg"/>
+  </div>
+</div>
+<div class="row" >
+    <div class=" col-md-5 col-md-offset-2" style="margin-top: -50px;">
+      <a href="https://www.linkedin.com/in/lo%C3%AFc-maupin-aa861aa6/">
+        <img width="60px" src="../../assets/image/logo/iLinkedin.png" alt="Linkedin">
+      </a>
+      <a href="https://www.instagram.com/loic.maupin.stylist/">
+        <img width="60px" src="../../assets/image/logo/iInstagram.png" alt="Instagram">
+      </a>
+      <a href="#">
+        <img width="60px" src="../../assets/image/logo/iFacebook.png" alt="Facebook">
+      </a>
+      <a href="https://twitter.com/Loicmaupin">
+        <img width="60px" src="../../assets/image/logo/iTwitter.png" alt="Twitter">
+      </a>
+    </div>
+</div>

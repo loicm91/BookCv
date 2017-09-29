@@ -1,0 +1,12 @@
+
+body {
+    color: #808080;
+    font-family:Monospace;
+    font-size:13px;
+   /* text-align:center;*/
+    background-color: #fff;
+    margin: 0px;
+}
+.masonry{
+    margin-left : 30px;
+}

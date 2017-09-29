@@ -1,0 +1,29 @@
+/* .rangement {
+    width: 400px;
+    margin: 5px;
+    padding: 5px;
+} */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+ul li.selected {
+    background-color: #dddddd;
+}
+
+ul li:hover {
+    background-color: #d94f5c;
+    color: #ffffff;
+}
+video {
+    width: 100%;
+    height: auto;
+}
