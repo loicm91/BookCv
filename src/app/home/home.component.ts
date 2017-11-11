@@ -1,65 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router }            from '@angular/router';
 
-
+import { Photo }                from '../photo';
+import { PhotoService }         from '../photo.service';
+import { EmitterService }       from '../emitter.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  providers: [PhotoService],
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  images = [];
+  results: Photo[];
 	array = [];
 	sum = 12;
   scrollDistance = 2;	
   selectedImage;
   
-     constructor(){
-        this.images = [
-        '../../assets/image/JMF-Valentine/IMG_7946.jpg',
-        '../../assets/image/AB-Loane/_Y5A9270.jpg',
-        '../../assets/image/CB-Chinatown/2-web.jpg',
-        '../../assets/image/AB-Anna/13.jpg',
-        '../../assets/image/JP-Voodoo/EDITO VOODOO8465348.jpg',
-        '../../assets/image/Apprecial/4.jpg',
-        '../../assets/image/EC-MaximeD/CLOTIS_8287.JPG',
-        '../../assets/image/MS-Cite/1E7A2018.jpg',
-        '../../assets/image/YJ-Jouvanceau/1.jpg',
-        '../../assets/image/Mobiendo/1.jpg',
-        '../../assets/image/AB-Dasha/_Y5A7970_retouch_Mads Bjerre Henriksen.jpg',
-        '../../assets/image/JMF-Valentine/IMG_7946.jpg',
-        '../../assets/image/AB-Loane/_Y5A9270.jpg',
-        '../../assets/image/CB-Chinatown/2-web.jpg',
-        '../../assets/image/AB-Anna/13.jpg',
-        '../../assets/image/JP-Voodoo/EDITO VOODOO8465348.jpg',
-        '../../assets/image/Apprecial/4.jpg',
-        '../../assets/image/EC-MaximeD/CLOTIS_8287.JPG',
-        '../../assets/image/MS-Cite/1E7A2018.jpg',
-        '../../assets/image/YJ-Jouvanceau/1.jpg',
-        '../../assets/image/Mobiendo/1.jpg',
-        '../../assets/image/AB-Dasha/_Y5A7970_retouch_Mads Bjerre Henriksen.jpg'
-      ] 
+     constructor(private photoService: PhotoService,
+      private router: Router){
+        this.results = [] 
     
       for (let i = 0; i < this.sum; ++i) {
-        this.array.push(this.images[i]);
+        this.array.push(this.results[i]);
       }
       
 
     }
+    @Input() photo: Photo;
+    ngOnInit(): void {
+      // Make the HTTP request:
+      this.photoService.getPosts().subscribe(data => {
+        // Read the result field from the JSON response.
+        this.results = data['results'];
+        console.log(this.results);
+      });
+      console.log('GetPost');
+      
+    }
 
-  ngOnInit() {
-   
-  }
-
-setSelectedImage(image){
-  this.selectedImage= image;	
+setSelectedImage(result){
+  this.selectedImage= result;	
 }
 
 
 navigate(direction){
-  var index = this.images.indexOf(this.selectedImage)+(direction ? 1: -1);
-  if(index >= 0 && index < this.images.length){
-    this.selectedImage = this.images[index];	
+  var index = this.results.indexOf(this.selectedImage)+(direction ? 1: -1);
+  if(index >= 0 && index < this.results.length){
+    this.selectedImage = this.results[index];	
   }
 }
 //Pour que ça boucle à l'infini :
@@ -70,7 +59,7 @@ navigate(direction){
 // }
 addItems(startIndex, endIndex) {
   for (let i = startIndex; i < endIndex; ++i) {
-    this.array.push(this.images[i]);
+    this.array.push(this.results[i]);
   }
 }
 onScrollDown () {
@@ -84,17 +73,4 @@ onScrollUp () {
   console.log('scrolled up!!')
 }
 
-  // pictures = [
-  //   {url: '../../assets/image/JMF-Valentine/IMG_7946.jpg'},
-  //   {url: '../../assets/image/AB-Loane/_Y5A9270.jpg'},
-  //   {url: '../../assets/image/CB-Chinatown/2-web.jpg'},
-  //   {url: '../../assets/image/AB-Anna/13.jpg'},
-  //   {url: '../../assets/image/JP-Voodoo/EDITO VOODOO8465348.jpg'},
-  //   {url: '../../assets/image/Apprecial/4.jpg'},
-  //   {url: '../../assets/image/EC-MaximeD/CLOTIS_8287.JPG'},
-  //   {url: '../../assets/image/MS-Cite/1E7A2018.jpg'},
-  //   {url: '../../assets/image/YJ-Jouvanceau/1.jpg'},
-  //   {url: '../../assets/image/Mobiendo/1.jpg'},
-  //   {url: '../../assets/image/AB-Dasha/_Y5A7970_retouch_Mads Bjerre Henriksen.jpg'}
-  // ]
 }

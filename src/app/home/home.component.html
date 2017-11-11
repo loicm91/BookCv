@@ -22,7 +22,7 @@
       </div>
     </div>
 </div>-->
-<masonry class="masonry">
+<masonry class="masonry" [useImagesLoaded]="true">
 
   <div 
           infinite-scroll
@@ -33,9 +33,9 @@
           (scrolled)="onScrollDown()"
           (scrolledUp)="onScrollUp()">
 
-          <masonry-brick *ngFor="let image of array" >
-          <img class="rangement" src="{{image}}">
-            </masonry-brick>
+          <masonry-brick *ngFor="let image of results" >
+            <img class="rangement" src="{{image.link}}">
+          </masonry-brick>
 
   </div>
 </masonry>

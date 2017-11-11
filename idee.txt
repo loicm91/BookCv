@@ -46,3 +46,8 @@
       </a>
     </div>
 </div>
+
+
+------------------------------------------------------------------------------------------
+
+ Création d'une page qui affiche l'édito en entier comme un blog

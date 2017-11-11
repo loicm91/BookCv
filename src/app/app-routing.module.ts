@@ -12,7 +12,7 @@ import { CommercialComponent } from './commercial/commercial.component';
 import { VideoComponent } from './video/video.component';
 import { ContactComponent } from './contact/contact.component';
 import { BioComponent } from './bio/bio.component';
-
+import { EditoComponent } from './edito/edito.component';
 
 //import { AuthGuard }                from './guard/auth.guards';
 
@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: '',  redirectTo: '/intro', pathMatch: 'full' },
   { path: '',               component: MenuComponent, children:[
     { path: 'home',                component: HomeComponent },
+    { path: 'edito',                component: EditoComponent },
     { path: 'women',                component: FashionWomenComponent },
     { path: 'men',                component: FashionMenComponent },
     { path: 'beauty',                component: BeautyComponent },

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes }   from '@angular/router';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -22,6 +23,7 @@ import { CommercialComponent } from './commercial/commercial.component';
 import { VideoComponent } from './video/video.component';
 import { ContactComponent } from './contact/contact.component';
 import { BioComponent } from './bio/bio.component';
+import { EditoComponent } from './edito/edito.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +38,12 @@ import { BioComponent } from './bio/bio.component';
     CommercialComponent,
     VideoComponent,
     ContactComponent,
-    BioComponent
+    BioComponent,
+    EditoComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     MasonryModule,
     InfiniteScrollModule,
