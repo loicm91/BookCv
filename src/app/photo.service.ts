@@ -14,17 +14,17 @@ export class PhotoService {
      // Resolve HTTP using the constructor
      constructor (private http: Http) {}
      // private instance variable to hold base url
-     private postsUrl = 'http://backend.loicmaupin.com/wp-json/wp/v2/posts'; 
+     private postsUrl = 'http://vps465324.ovh.net/wp-json/wp/v2/media?per_page=100'; 
 
      // Fetch all existing comments
-     getPosts() : Observable<Photo[]> {
+     getPosts() : Observable<any[]> {
       console.log(this.postsUrl);
                // ...using get request
                return this.http.get(this.postsUrl)
                               // ...and calling .json() on the response to return data
                                .map((res:Response) => res.json())
                                //...errors if any
-                               .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+                               .catch((error:any) => Observable.throw(error.json() || 'Server error'));
       
            }
 

@@ -22,6 +22,11 @@
       </div>
     </div>
 </div>-->
+
+<!-- <div *ngFor="let image of results" >
+  <img class="rangement" src="{{image.guid.rendered}}">
+</div> -->
+
 <masonry class="masonry" [useImagesLoaded]="true">
 
   <div 
@@ -34,7 +39,7 @@
           (scrolledUp)="onScrollUp()">
 
           <masonry-brick *ngFor="let image of results" >
-            <img class="rangement" src="{{image.link}}">
+            <img class="rangement" src="{{image.guid.rendered}}">
           </masonry-brick>
 
   </div>

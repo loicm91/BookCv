@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   results: Photo[];
+  render: any[];
 	array = [];
 	sum = 12;
   scrollDistance = 2;	
@@ -31,11 +32,7 @@ export class HomeComponent implements OnInit {
     @Input() photo: Photo;
     ngOnInit(): void {
       // Make the HTTP request:
-      this.photoService.getPosts().subscribe(data => {
-        // Read the result field from the JSON response.
-        this.results = data['results'];
-        console.log(this.results);
-      });
+     this.getPhoto();
       console.log('GetPost');
       
     }
@@ -44,6 +41,13 @@ setSelectedImage(result){
   this.selectedImage= result;	
 }
 
+getPhoto(){
+  this.photoService.getPosts().subscribe(data => {
+    // Read the result field from the JSON response.
+    this.results = data;
+    console.log('toto', this.results);
+  });
+}
 
 navigate(direction){
   var index = this.results.indexOf(this.selectedImage)+(direction ? 1: -1);
