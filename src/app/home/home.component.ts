@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  results: Photo[];
+  results: any[];
   render: any[];
 	array = [];
 	sum = 12;
@@ -21,11 +21,7 @@ export class HomeComponent implements OnInit {
   
      constructor(private photoService: PhotoService,
       private router: Router){
-        this.results = [] 
-    
-      for (let i = 0; i < this.sum; ++i) {
-        this.array.push(this.results[i]);
-      }
+       
       
 
     }
@@ -45,6 +41,11 @@ getPhoto(){
   this.photoService.getPosts().subscribe(data => {
     // Read the result field from the JSON response.
     this.results = data;
+
+    
+      for (let i = 0; i < this.sum; ++i) {
+        this.array.push(this.results[i]);
+      }
     console.log('toto', this.results);
   });
 }

@@ -14,8 +14,9 @@ export class PhotoService {
      // Resolve HTTP using the constructor
      constructor (private http: Http) {}
      // private instance variable to hold base url
-     private postsUrl = 'http://vps465324.ovh.net/wp-json/wp/v2/media?per_page=100'; 
-
+    //  private postsUrl = 'http://vps465324.ovh.net/wp-json/wp/v2/media?per_page=100'; 
+    private postsUrl = 'http://vps465324.ovh.net/wp-json/wp/v2/posts?filter[post_type]=attachment'; 
+    
      // Fetch all existing comments
      getPosts() : Observable<any[]> {
       console.log(this.postsUrl);

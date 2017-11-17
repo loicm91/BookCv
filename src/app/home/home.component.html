@@ -38,7 +38,7 @@
           (scrolled)="onScrollDown()"
           (scrolledUp)="onScrollUp()">
 
-          <masonry-brick *ngFor="let image of results" >
+          <masonry-brick *ngFor="let image of array" >
             <img class="rangement" src="{{image.guid.rendered}}">
           </masonry-brick>
 
