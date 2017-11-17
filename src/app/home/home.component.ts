@@ -41,7 +41,6 @@ getPhoto(){
   this.photoService.getPosts().subscribe(data => {
     // Read the result field from the JSON response.
     this.results = data;
-
     
       for (let i = 0; i < this.sum; ++i) {
         this.array.push(this.results[i]);

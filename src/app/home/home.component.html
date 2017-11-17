@@ -39,7 +39,7 @@
           (scrolledUp)="onScrollUp()">
 
           <masonry-brick *ngFor="let image of array" >
-            <img class="rangement" src="{{image.guid.rendered}}">
+            <img class="rangement" src="{{image._embedded['wp:featuredmedia'][0].source_url}}">
           </masonry-brick>
 
   </div>
